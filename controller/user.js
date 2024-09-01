@@ -11,10 +11,14 @@ async function handlegetsignup(req,res) {
 
 async function handlepostsignin(req,res) {
     const { email , password } = req.body;
-    const user = User.matchPassword(email,password);
+    try{
+        const token = await User.matchPasswordAndGenerateToken(email,password);
+        return res.cookie("token" , token).redirect("/");
+    }
+    catch(error){
+        return res.render("signin" , {error:"Incorrect Email or Password"});
 
-    console.log("USER :", user);
-    return res.redirect("/");
+    }
 }
 
 async function handlepostsignup(req,res) {
@@ -27,10 +31,15 @@ async function handlepostsignup(req,res) {
     return res.redirect("/")
 }
 
+function handlelogout(req,res){
+    res.clearCookie("token").redirect("/");
+    
+}
 
 module.exports = {
     handlegetsignin,
     handlegetsignup,
     handlepostsignin,
     handlepostsignup,
+    handlelogout,
 }
