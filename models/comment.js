@@ -1,17 +1,18 @@
 const {Schema,model} = require("mongoose");
 
 const commentschema = new Schema({
-    content:{
+    content: {
         type:String,
         required:true,
     },
-    blogid:{
+    blogid: {
         type: Schema.Types.ObjectId,
         ref: "blog",
     },
-    createdby:{
+    createdby: {
         type: Schema.Types.ObjectId,
         ref: "user",
+        required:true,
     },
 },
     {timestamps:true}

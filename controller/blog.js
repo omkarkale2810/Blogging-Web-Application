@@ -20,20 +20,23 @@ function handlegetaddblog(req,res){
 
 async function handlegetblogbyid(req,res){
     const blog = await Blog.findById(req.params.id).populate("createdby");
-    const comments = await Comment.find( { blogid: req.params.blogid } ).populate("createdby");
-    console.log("blog ", blog);
-    return res.render("blog" , {
-        user:req.user,
-        blog,  
+    const comments = await Comment.find({ blogid: req.params.id }).populate(
+        "createdby"
+    );
+
+    return res.render("blog", {
+        user: req.user,
+        blog,
         comments,
-    })
+    });
 }
 
 async function handlePOSTcommentonblogid(req,res){
+    console.log("User ID:", req.user._id); 
     await Comment.create({
         content:req.body.content,
         blogid:req.params.blogid,
-        createdby:req.user.createdby
+        createdby:req.user._id
     })
     return res.redirect(`/blog/${req.params.blogid}`);
 }

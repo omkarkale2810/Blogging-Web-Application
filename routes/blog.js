@@ -3,6 +3,9 @@ const { handlepostaddblog , handlegetaddblog , handlegetblogbyid ,handlePOSTcomm
 const multer = require("multer");
 const path = require("path")
 
+const Blog = require("../models/blogs");
+const Comment = require("../models/comment");
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.resolve(`./public/uploads`))

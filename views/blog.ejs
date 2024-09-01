@@ -3,6 +3,111 @@
 <head>
     <%- include("./partials/head") %>
     <title>Home</title>
+    <style>
+        /* Global Styles */
+body {
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c0fe 100%);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+h1 {
+    color: #6a1b9a;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Image Styles */
+img {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Preformatted Text */
+pre {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Author Section */
+.container:last-of-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: #e0f7fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+form {
+    background: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    border-radius: 5px;
+    border: 1px solid #cfd8dc;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #009688;
+    box-shadow: 0 0 5px rgba(0, 150, 136, 0.2);
+}
+
+/* Button Customization */
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b6b 0%, #f06595 100%);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ff8a80 0%, #f06292 100%);
+    transform: translateY(-3px);
+}
+
+/* Comments Section */
+.container:last-of-type div {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 1rem;
+    background: #f1f8e9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container:last-of-type img {
+    border-radius: 50%;
+}
+
+    </style>
 </head>
 <body>
     <%- include("./partials/nav") %>
@@ -40,7 +145,8 @@
     <div class="container mt-3">
         <% comments.forEach(comment => { %>
          <div>
-            <img src=" <%= comment.createdby.Profilephotourl %> " alt="img" width="50px"><%= comment.createdby.name %>
+            <img src="<%= comment.createdby.
+Profilephotourl %>" alt="img" width="50px"><%= comment.createdby.name %>
             <pre><%= comment.content %></pre>
          </div>
         <% }) %>

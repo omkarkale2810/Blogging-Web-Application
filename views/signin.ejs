@@ -3,6 +3,72 @@
 <head>
     <%- include("./partials/head") %>
     <title>signin</title>
+    <style>
+      /* Global Styles */
+body {
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c0fe 100%);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styles */
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input and Label Styling */
+.form-label {
+    color: #6a1b9a;
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #cfd8dc;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #009688;
+    box-shadow: 0 0 5px rgba(0, 150, 136, 0.2);
+}
+
+/* Help Text */
+.form-text {
+    color: #007bff;
+}
+
+/* Button Styling */
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b6b 0%, #f06595 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ff8a80 0%, #f06292 100%);
+    transform: translateY(-3px);
+}
+
+    </style>
 </head>
 <body>
     <%- include("./partials/nav") %>
